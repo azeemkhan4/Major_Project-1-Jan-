@@ -1,0 +1,93 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+
+{% if error_list %}
+<div class="container">
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong>errors</strong>
+    {% for error in error_list %}
+    <p class="text-danger text-small">
+      {{ error|e }}
+    </p>
+    {% endfor %}
+    
+  </div>
+</div>
+{% endif %}
+
+
+
+
+<div class="container"> <!---.container>.row>.col-->
+  <div class="row form-row">
+    <div class="col-lg-10">
+      <h1 class="my-5">Please Add Your Parking</h1>
+      
+      <form class="shadow-lg p-3 rounded bg-light", method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="addparking" class="form-label">Add Parking</label>
+          <input type="addparking" class="form-control" id="addparking" name="addparking">
+        </div>
+        <div class="form-row d-flex justify-content-start">
+          <div class="form-group col-md-4">
+            <div class="mb-3 me-2">
+              <label for="thumbnail" class="form-label">Thumbnail</label>
+              <input type="file" class="form-control" id="thumbnail" name="thumbnail"> 
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <div class="mb-3 me-2">
+              <label for="video" class="form-label">Video</label>
+              <input type="file" class="form-control" id="video" name="video">  
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="parkinglocation" class="form-label">Parking Location</label>
+            <input type="text" class="form-control" id="parkinglocation" name="parkinglocation">
+          </div>
+          <div class="mb-3">
+            <label for="parkingaddress" class="form-label">Parking Address</label>
+            <input type="text" class="form-control" id="parkingaddress" name="parkingaddress">
+            
+          </div>
+          
+          <div class="mb-3">
+            <label for="totalparkingspace" class="form-label">Total Parking Spaces</label>
+            <input type="text" class="form-control" id="totalparkingspace" name="totalparkingspace">
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block css %}
+<style >
+  
+  main{
+    background-image: url('https://www.thenbs.com/-/media/uk/new-images/by-section/knowledge/knowledge-articles-hero/multi-storey-car-park.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  h1{
+    color: rgb(238, 246, 10);
+  }
+</style>
+{% endblock %}
+{% block js %}
+<script>
+  var alertList = document.querySelectorAll('.alert');
+  alertList.forEach(function (alert) {
+    new bootstrap.Alert(alert)
+  })
+</script>
+{% endblock %}

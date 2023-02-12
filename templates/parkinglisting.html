@@ -1,0 +1,44 @@
+{% extends 'layout/base.html' %}
+{% block body %}
+<div class="wrapper">
+    <div class="box box-1" id="item1">1.</div>
+    <div class="box box-2" id="item2">2.</div>
+    <div class="box box-3" id="item3">3.</div>
+    <div class="box box-4" id="item4">4.</div>
+    <div class="box box-5" id="item5">5.</div>
+    <div class="box box-6" id="item6">6.</div>
+  </div>
+{% endblock %}
+{% block css %} 
+<style>
+   .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 200px 200px;
+  grid-gap: 40px;
+}
+#item1{
+    background-color: rgb(86, 113, 137);
+}
+
+#item2{
+    background-color: rgb(123, 143, 161);
+}
+#item3{
+    background-color: rgb(207, 185, 151);
+}
+#item4{
+    background-color: rgb(250, 214, 165);
+}
+#item5{
+    background-color: rgb(206, 119, 119);
+}
+#item6{
+    background-color: rgb(208, 184, 168);
+}
+    
+</style>
+{% endblock css %}
+
+
+
